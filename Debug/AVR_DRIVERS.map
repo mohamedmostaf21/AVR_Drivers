@@ -3,7 +3,7 @@ Archive member included because of file (symbol)
 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
                               d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o (exit)
 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
-                              ./APP/Test.o (__do_copy_data)
+                              ./HAL/SEVEN_SEGMENT/SEV.o (__do_copy_data)
 
 Memory Configuration
 
@@ -20,6 +20,8 @@ Linker script and memory map
 
 LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
 LOAD ./MCAL/DIO/DIO.o
+LOAD ./HAL/SEVEN_SEGMENT/SEV.o
+LOAD ./HAL/SEVEN_SEGMENT/SEV_cfg.o
 LOAD ./APP/Test.o
 LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
@@ -115,7 +117,7 @@ LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x822
+.text           0x00000000      0xd20
  *(.vectors)
  .vectors       0x00000000       0x54 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -191,35 +193,48 @@ LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x0000007e                __vector_18
                 0x0000007e                __vector_20
  .text          0x00000082        0x0 ./MCAL/DIO/DIO.o
+ .text          0x00000082        0x0 ./HAL/SEVEN_SEGMENT/SEV.o
+ .text          0x00000082        0x0 ./HAL/SEVEN_SEGMENT/SEV_cfg.o
  .text          0x00000082        0x0 ./APP/Test.o
  .text          0x00000082        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  .text          0x00000082        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
                 0x00000082                . = ALIGN (0x2)
  *(.text.*)
  .text.DIO_voidInit
-                0x00000082       0x2a ./MCAL/DIO/DIO.o
+                0x00000082       0x2c ./MCAL/DIO/DIO.o
                 0x00000082                DIO_voidInit
  .text.DIO_enuWritePin
-                0x000000ac      0x264 ./MCAL/DIO/DIO.o
-                0x000000ac                DIO_enuWritePin
+                0x000000ae      0x264 ./MCAL/DIO/DIO.o
+                0x000000ae                DIO_enuWritePin
  .text.DIO_enuReadPin
-                0x00000310      0x10e ./MCAL/DIO/DIO.o
-                0x00000310                DIO_enuReadPin
+                0x00000312      0x10e ./MCAL/DIO/DIO.o
+                0x00000312                DIO_enuReadPin
  .text.DIO_enuStatePullup
-                0x0000041e       0x20 ./MCAL/DIO/DIO.o
-                0x0000041e                DIO_enuStatePullup
+                0x00000420       0x20 ./MCAL/DIO/DIO.o
+                0x00000420                DIO_enuStatePullup
  .text.DIO_enuWriteGroup
-                0x0000043e       0x7a ./MCAL/DIO/DIO.o
-                0x0000043e                DIO_enuWriteGroup
- .text.main     0x000004b8      0x366 ./APP/Test.o
-                0x000004b8                main
- .text.libgcc   0x0000081e        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x0000081e        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
-                0x0000081e                . = ALIGN (0x2)
+                0x00000440       0x7a ./MCAL/DIO/DIO.o
+                0x00000440                DIO_enuWriteGroup
+ .text.Sev_Display
+                0x000004ba       0xde ./HAL/SEVEN_SEGMENT/SEV.o
+                0x000004ba                Sev_Display
+ .text.PutOnBus
+                0x00000598       0x94 ./HAL/SEVEN_SEGMENT/SEV.o
+ .text.Sev_PowerOn
+                0x0000062c       0x9c ./HAL/SEVEN_SEGMENT/SEV.o
+                0x0000062c                Sev_PowerOn
+ .text.Sev_PowerOff
+                0x000006c8       0x9c ./HAL/SEVEN_SEGMENT/SEV.o
+                0x000006c8                Sev_PowerOff
+ .text.main     0x00000764      0x5b8 ./APP/Test.o
+                0x00000764                main
+ .text.libgcc   0x00000d1c        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000d1c        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x00000d1c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000081e        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000081e                exit
-                0x0000081e                _exit
+ .fini9         0x00000d1c        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000d1c                exit
+                0x00000d1c                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -238,48 +253,55 @@ LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000081e        0x4 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000d1c        0x4 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000822                _etext = .
+                0x00000d20                _etext = .
 
-.data           0x00800060        0x8 load address 0x00000822
+.data           0x00800060       0x1c load address 0x00000d20
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
  .data          0x00800060        0x0 ./MCAL/DIO/DIO.o
+ .data          0x00800060        0x0 ./HAL/SEVEN_SEGMENT/SEV.o
+ .data          0x00800060        0x0 ./HAL/SEVEN_SEGMENT/SEV_cfg.o
  .data          0x00800060        0x0 ./APP/Test.o
  .data          0x00800060        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  .data          0x00800060        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
  *(.data*)
+ .data.SEV_ConfigSet
+                0x00800060       0x12 ./HAL/SEVEN_SEGMENT/SEV_cfg.o
+                0x00800060                SEV_ConfigSet
  *(.rodata)
  *(.rodata*)
- .rodata.C.0.1441
-                0x00800060        0x8 ./APP/Test.o
+ .rodata.C.0.1418
+                0x00800072        0xa ./HAL/SEVEN_SEGMENT/SEV.o
  *(.gnu.linkonce.d*)
-                0x00800068                . = ALIGN (0x2)
-                0x00800068                _edata = .
-                0x00800068                PROVIDE (__data_end, .)
+                0x0080007c                . = ALIGN (0x2)
+                0x0080007c                _edata = .
+                0x0080007c                PROVIDE (__data_end, .)
 
-.bss            0x00800068        0x0
-                0x00800068                PROVIDE (__bss_start, .)
+.bss            0x0080007c        0x0
+                0x0080007c                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00800068        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .bss           0x00800068        0x0 ./MCAL/DIO/DIO.o
- .bss           0x00800068        0x0 ./APP/Test.o
- .bss           0x00800068        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .bss           0x00800068        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x0080007c        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x0080007c        0x0 ./MCAL/DIO/DIO.o
+ .bss           0x0080007c        0x0 ./HAL/SEVEN_SEGMENT/SEV.o
+ .bss           0x0080007c        0x0 ./HAL/SEVEN_SEGMENT/SEV_cfg.o
+ .bss           0x0080007c        0x0 ./APP/Test.o
+ .bss           0x0080007c        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x0080007c        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
  *(.bss*)
  *(COMMON)
-                0x00800068                PROVIDE (__bss_end, .)
-                0x00000822                __data_load_start = LOADADDR (.data)
-                0x0000082a                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0080007c                PROVIDE (__bss_end, .)
+                0x00000d20                __data_load_start = LOADADDR (.data)
+                0x00000d3c                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800068        0x0
-                0x00800068                PROVIDE (__noinit_start, .)
+.noinit         0x0080007c        0x0
+                0x0080007c                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800068                PROVIDE (__noinit_end, .)
-                0x00800068                _end = .
-                0x00800068                PROVIDE (__heap_start, .)
+                0x0080007c                PROVIDE (__noinit_end, .)
+                0x0080007c                _end = .
+                0x0080007c                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -297,15 +319,19 @@ LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000      0xc78
+.stab           0x00000000     0x14c4
  *(.stab)
- .stab          0x00000000      0x780 ./MCAL/DIO/DIO.o
- .stab          0x00000780      0x4f8 ./APP/Test.o
-                                0x6d8 (size before relaxing)
+ .stab          0x00000000      0x798 ./MCAL/DIO/DIO.o
+ .stab          0x00000798      0x4ec ./HAL/SEVEN_SEGMENT/SEV.o
+                                0x6cc (size before relaxing)
+ .stab          0x00000c84      0x18c ./HAL/SEVEN_SEGMENT/SEV_cfg.o
+                                0x414 (size before relaxing)
+ .stab          0x00000e10      0x6b4 ./APP/Test.o
+                                0x894 (size before relaxing)
 
-.stabstr        0x00000000      0xb82
+.stabstr        0x00000000      0xfe4
  *(.stabstr)
- .stabstr       0x00000000      0xb82 ./MCAL/DIO/DIO.o
+ .stabstr       0x00000000      0xfe4 ./MCAL/DIO/DIO.o
 
 .stab.excl
  *(.stab.excl)

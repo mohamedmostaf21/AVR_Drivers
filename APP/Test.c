@@ -1,50 +1,44 @@
 
 #include "../MCAL/DIO/DIO.h"
+#include "../HAL/SEVEN_SEGMENT/SEV.h"
 #include "../LIBS/delay.h"
 int main(){
 	 DIO_voidInit();
-	 u8 pins[8] = {DIO_PIN_NUM_0, DIO_PIN_NUM_1, DIO_PIN_NUM_2, DIO_PIN_NUM_3,DIO_PIN_NUM_4, DIO_PIN_NUM_5, DIO_PIN_NUM_6, DIO_PIN_NUM_7};
-	// u8 values_high[8] = {DIO_HIGH, DIO_HIGH, DIO_HIGH, DIO_HIGH, DIO_HIGH, DIO_HIGH, DIO_HIGH, DIO_HIGH};
-	 u8 values_low[8] = {DIO_LOW, DIO_LOW, DIO_LOW, DIO_LOW, DIO_LOW, DIO_LOW, DIO_LOW, DIO_LOW};
-	 DIO_enuWriteGroup(pins, values_low, 8);
-
-	 //PB0, PB1
-	 DIO_enuWritePin(DIO_PIN_NUM_8, DIO_LOW);
-	 DIO_enuWritePin(DIO_PIN_NUM_9, DIO_LOW);
+	 //segment 1
+	 Sev_PowerOn(0);
+	//segment 2
+	 Sev_PowerOn(1);
 	 while(1){
-		 DIO_enuWritePin(DIO_PIN_NUM_4, DIO_HIGH);
-		 DIO_enuWritePin(DIO_PIN_NUM_5, DIO_HIGH);
+		Sev_Display(0, 0);
+		Sev_Display(1, 0);
 		Delay_ms(75);
-		DIO_enuWritePin(DIO_PIN_NUM_4, DIO_LOW);
-		DIO_enuWritePin(DIO_PIN_NUM_5, DIO_LOW);
-
-		DIO_enuWritePin(DIO_PIN_NUM_3, DIO_HIGH);
-		DIO_enuWritePin(DIO_PIN_NUM_6, DIO_HIGH);
+		Sev_Display(0, 1);
+		Sev_Display(1, 1);
 		Delay_ms(75);
-
-		DIO_enuWritePin(DIO_PIN_NUM_3, DIO_LOW);
-		DIO_enuWritePin(DIO_PIN_NUM_6, DIO_LOW);
-
-
-		DIO_enuWritePin(DIO_PIN_NUM_2, DIO_HIGH);
-		DIO_enuWritePin(DIO_PIN_NUM_7, DIO_HIGH);
+		Sev_Display(0, 2);
+		Sev_Display(1, 2);
 		Delay_ms(75);
-
-		DIO_enuWritePin(DIO_PIN_NUM_2, DIO_LOW);
-		DIO_enuWritePin(DIO_PIN_NUM_7, DIO_LOW);
-
-
-		DIO_enuWritePin(DIO_PIN_NUM_1, DIO_HIGH);
-		DIO_enuWritePin(DIO_PIN_NUM_8, DIO_HIGH);
+		Sev_Display(0, 3);
+		Sev_Display(1, 3);
 		Delay_ms(75);
-		DIO_enuWritePin(DIO_PIN_NUM_1, DIO_LOW);
-		DIO_enuWritePin(DIO_PIN_NUM_8, DIO_LOW);
-
-		DIO_enuWritePin(DIO_PIN_NUM_0, DIO_HIGH);
-		DIO_enuWritePin(DIO_PIN_NUM_9, DIO_HIGH);
+		Sev_Display(0, 4);
+		Sev_Display(1, 4);
 		Delay_ms(75);
-		DIO_enuWritePin(DIO_PIN_NUM_0, DIO_LOW);
-		DIO_enuWritePin(DIO_PIN_NUM_9, DIO_LOW);
+		Sev_Display(0, 5);
+		Sev_Display(1, 5);
+		Delay_ms(75);
+		Sev_Display(0, 6);
+		Sev_Display(1, 6);
+		Delay_ms(75);
+		Sev_Display(0, 7);
+		Sev_Display(1, 7);
+		Delay_ms(75);
+		Sev_Display(0, 8);
+		Sev_Display(1, 8);
+		Delay_ms(75);
+		Sev_Display(0, 9);
+		Sev_Display(1, 9);
+		Delay_ms(75);
 	 }
 	return 0;
 }

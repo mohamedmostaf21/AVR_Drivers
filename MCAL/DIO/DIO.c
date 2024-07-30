@@ -29,7 +29,7 @@ void DIO_voidInit(void)
 tenuErrorStatus DIO_enuWritePin(u8 u8PinNumCpy,u8 u8PinValueCpy)
 {
 
-	tenuErrorStatus enuReturnStateLoc = EOK ;
+	tenuErrorStatus enuReturnStateLoc = EOK;
 	if (u8PinNumCpy >= DIO_PIN_NUM_0 && u8PinNumCpy <= DIO_PIN_NUM_7)
 	{
 		switch (u8PinValueCpy)
@@ -49,7 +49,7 @@ tenuErrorStatus DIO_enuWritePin(u8 u8PinNumCpy,u8 u8PinValueCpy)
 		switch (u8PinValueCpy)
 		{
 			case DIO_LOW :
-			 CLR_BIT (ODRB ,  u8PinNumCpy%8);
+			 CLR_BIT (ODRB ,  u8PinNumCpy%8); //0 1 2 3 4 5 6 7 => 8%8 = 0, 9%8 = 1, 10%8 = 2, 11%8 = 3, 12%8 = 4, 13%8 = 5, 14%8 = 6, 15%8 = 7
 			break;
 			case DIO_HIGH :
 			 SET_BIT(ODRB , u8PinNumCpy%8);
@@ -94,10 +94,11 @@ tenuErrorStatus DIO_enuWritePin(u8 u8PinNumCpy,u8 u8PinValueCpy)
 	return enuReturnStateLoc ;
 
 }
+//#define GET_BIT(byte,pos) ( (byte >> pos) & 1 )
+//4 => 0100 
+//GET_BIT(4, 1)     0100 >> 1 = 00010 & 0001 = 0
 
-
-
-tenuErrorStatus DIO_enuReadPin(u8 u8PinNumCpy ,u8 * pu8PinValueCpy )
+tenuErrorStatus DIO_enuReadPin(u8 u8PinNumCpy ,u8 *pu8PinValueCpy )
 {
 	tenuErrorStatus  enuReturnStateLoc = EOK;
 
@@ -143,12 +144,12 @@ tenuErrorStatus DIO_enuStatePullup(u8 u8PinNumCpy, u8 u8StateCpy)
 
 tenuErrorStatus DIO_enuWriteGroup(u8 *pau8PinNumCpy,u8 * pau8PinValueCpy , u8 u8SizeCpy)
 {
-	tenuErrorStatus enuReturnStateLoc = EOK ;
-	u8 u8CntrLoc ;
-	for (u8CntrLoc = 0 ; u8CntrLoc< u8SizeCpy ; u8CntrLoc++)
+	tenuErrorStatus enuReturnStateLoc = EOK;
+	u8 u8CntrLoc;
+	for (u8CntrLoc = 0 ; u8CntrLoc < u8SizeCpy ; u8CntrLoc++)
 	{
 		enuReturnStateLoc = DIO_enuWritePin(pau8PinNumCpy[u8CntrLoc],pau8PinValueCpy[u8CntrLoc]);
-		if (enuReturnStateLoc !=EOK)
+		if (enuReturnStateLoc != EOK)
 		{
 			break;
 		}

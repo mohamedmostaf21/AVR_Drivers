@@ -8,6 +8,7 @@
 #ifndef DIO_H
 #define DIO_H
 #include "../../LIBS/STD_TYPES.h"
+#include "../../LIBS/Error_Status.h"
 #include "DIO_priv.h"
 #define DIO_LOW    0
 #define DIO_HIGH   1
@@ -32,6 +33,7 @@
 #define DIO_PIN_NUM_13  13
 #define DIO_PIN_NUM_14  14
 #define DIO_PIN_NUM_15  15
+
 #define DIO_PIN_NUM_16  16
 #define DIO_PIN_NUM_17  17
 #define DIO_PIN_NUM_18  18
@@ -40,6 +42,7 @@
 #define DIO_PIN_NUM_21  21
 #define DIO_PIN_NUM_22  22
 #define DIO_PIN_NUM_23  23
+
 #define DIO_PIN_NUM_24  24
 #define DIO_PIN_NUM_25  25
 #define DIO_PIN_NUM_26  26
@@ -48,12 +51,6 @@
 #define DIO_PIN_NUM_29  29
 #define DIO_PIN_NUM_30  30
 #define DIO_PIN_NUM_31  31
-
-typedef enum{
-	EOK,
-	PARAM_OUT_RANGE,
-	PARAM_NULL_PTR
-}tenuErrorStatus;
 
 
 
@@ -85,7 +82,7 @@ tenuErrorStatus DIO_enuWritePin(u8 u8PinNumCpy,u8 u8PinValueCpy);
  *
  * @return tenuErrorStatus Returns EOK if successful, PARAM_OUT_RANGE if parameters are out of range, PARAM_NULL_PTR if pinVal is NULL.
  */
-tenuErrorStatus DIO_enuReadPin(u8 u8PinNumCpy ,u8 * pu8PinValueCpy );
+tenuErrorStatus DIO_enuReadPin(u8 u8PinNumCpy ,u8 *pu8PinValueCpy);
 
 
 /**
@@ -110,6 +107,6 @@ tenuErrorStatus DIO_enuStatePullup(u8 u8PinNumCpy, u8 u8StateCpy);
  * @return tenuErrorStatus Returns EOK if successful, PARAM_OUT_RANGE if parameters are out of range.
  */
 
-tenuErrorStatus DIO_enuWriteGroup(u8 *pau8PinNumCpy,u8 * pau8PinValueCpy , u8 u8SizeCpy);
+tenuErrorStatus DIO_enuWriteGroup(u8 *pau8PinNumCpy,u8 *pau8PinValueCpy , u8 u8SizeCpy);
 
 #endif

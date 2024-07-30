@@ -35,7 +35,7 @@
 #define DIO_PIN_DIR_22    DIO_INPUT
 #define DIO_PIN_DIR_23    DIO_INPUT
 
-#define DIO_PIN_DIR_24    DIO_INPUT
+#define DIO_PIN_DIR_24    DIO_INTPUT
 #define DIO_PIN_DIR_25    DIO_INPUT
 #define DIO_PIN_DIR_26    DIO_INPUT
 #define DIO_PIN_DIR_27    DIO_INPUT
