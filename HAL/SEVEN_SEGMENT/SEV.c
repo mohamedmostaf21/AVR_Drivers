@@ -4,15 +4,19 @@
  *  Created on: Jul 30, 2024
  *      Author: Mohamed
  */
-#include "SEV.h"
+#include "../../LIBS/STD_TYPES.h"
 #include "../../LIBS/BIT_MATH.h"
 #include "../../MCAL/DIO/DIO.h"
+#include "SEV.h"
+#include "SEV_cfg.h"
+#include "SEV_priv.h"
+
 
 
 tenuErrorStatus Sev_Display(u8 u8sevIndex, u8 u8num){
     tenuErrorStatus enuReturnLoc = EOK;
     u8 au8Cathode[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F};
-    if(u8sevIndex <= MAX_SEV_SEGMENT){
+    if(u8sevIndex < MAX_SEV_SEGMENT){
         if(u8num < 10){
             if(SEV_ConfigSet[u8sevIndex].common_mode == Common_Cathode){
             	PutOnBus(u8sevIndex, au8Cathode[u8num]);
@@ -39,7 +43,7 @@ static void PutOnBus(u8 u8sevIndex, u8 u8num){
 tenuErrorStatus Sev_PowerOn(u8 u8sevIndex){
     tenuErrorStatus enuReturnLoc = EOK;
     
-    if(u8sevIndex <= MAX_SEV_SEGMENT){
+    if(u8sevIndex < MAX_SEV_SEGMENT){
         if(SEV_ConfigSet[u8sevIndex].common_mode == Common_Cathode){
             enuReturnLoc = DIO_enuWritePin(SEV_ConfigSet[u8sevIndex].common, Common_Cathode);
         }else{
@@ -55,7 +59,7 @@ tenuErrorStatus Sev_PowerOn(u8 u8sevIndex){
 tenuErrorStatus Sev_PowerOff(u8 u8sevIndex){
     tenuErrorStatus enuReturnLoc = EOK;
     
-    if(u8sevIndex <= MAX_SEV_SEGMENT){
+    if(u8sevIndex < MAX_SEV_SEGMENT){
         if(SEV_ConfigSet[u8sevIndex].common_mode == Common_Cathode){
         	 enuReturnLoc = DIO_enuWritePin(SEV_ConfigSet[u8sevIndex].common, Common_Anode);
         }else{

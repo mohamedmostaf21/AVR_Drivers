@@ -7,12 +7,12 @@
 
 #ifndef HAL_SEVEN_SEGMENT_SEV_PRIV_H_
 #define HAL_SEVEN_SEGMENT_SEV_PRIV_H_
-#include "../../LIBS/STD_TYPES.h"
-#include "SEV_cfg.h"
+
+
 
 #define Common_Cathode     0
 #define Common_Anode       1
-#define MAX_SEV_SEGMENT    2
+
 typedef struct 
 {
     u8 Au8Pin[7];

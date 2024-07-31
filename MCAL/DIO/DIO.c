@@ -5,12 +5,17 @@
 /* Date        : 29 july 2024         */
 /* History     : 0.1v initial creation*/
 /**************************************/
+
+
+
 #include "../../LIBS/STD_TYPES.h"
 #include "../../LIBS/BIT_MATH.h"
 
 
 #include "DIO.h"
+
 #include "DIO_cfg.h"
+
 #include "DIO_priv.h"
 
 
@@ -63,10 +68,10 @@ tenuErrorStatus DIO_enuWritePin(u8 u8PinNumCpy,u8 u8PinValueCpy)
 		switch (u8PinValueCpy)
 		{
 			case DIO_LOW :
-			 CLR_BIT (ODRC ,  u8PinNumCpy%8);
+			 CLR_BIT (ODRC ,  u8PinNumCpy%16);
 			break;
 			case DIO_HIGH :
-			 SET_BIT(ODRC , u8PinNumCpy%8);
+			 SET_BIT(ODRC , u8PinNumCpy%16);
 			break ;
 			default :
 			enuReturnStateLoc = PARAM_OUT_RANGE ;
@@ -77,10 +82,10 @@ tenuErrorStatus DIO_enuWritePin(u8 u8PinNumCpy,u8 u8PinValueCpy)
 		switch (u8PinValueCpy)
 		{
 			case DIO_LOW :
-			 CLR_BIT (ODRD ,  u8PinNumCpy%8);
+			 CLR_BIT (ODRD ,  u8PinNumCpy%24);
 			break;
 			case DIO_HIGH :
-			 SET_BIT(ODRD , u8PinNumCpy%8);
+			 SET_BIT(ODRD , u8PinNumCpy%24);
 			break ;
 			default :
 			enuReturnStateLoc = PARAM_OUT_RANGE ;
@@ -115,11 +120,11 @@ tenuErrorStatus DIO_enuReadPin(u8 u8PinNumCpy ,u8 *pu8PinValueCpy )
 		}
 		else if (u8PinNumCpy >= DIO_PIN_NUM_16 && u8PinNumCpy <= DIO_PIN_NUM_23)
 		{
-			*pu8PinValueCpy  = GET_BIT(IDRC , u8PinNumCpy%8);
+			*pu8PinValueCpy  = GET_BIT(IDRC , u8PinNumCpy%16);
 		}
 		else if (u8PinNumCpy >= DIO_PIN_NUM_24 && u8PinNumCpy <= DIO_PIN_NUM_31)
 		{
-			*pu8PinValueCpy  = GET_BIT(IDRD , u8PinNumCpy%8);
+			*pu8PinValueCpy  = GET_BIT(IDRD , u8PinNumCpy%24);
 		}
 		else
 		{

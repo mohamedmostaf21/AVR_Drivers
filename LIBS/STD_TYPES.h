@@ -14,4 +14,10 @@ typedef double f64;
 typedef long double lf128;
 typedef unsigned long long int u64;
 
+typedef enum{
+	EOK,
+	PARAM_OUT_RANGE,
+	PARAM_NULL_PTR
+}tenuErrorStatus;
+
 #endif /* STD_TYPES_H */

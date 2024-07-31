@@ -7,8 +7,7 @@
 
 #ifndef HAL_SEVEN_SEGMENT_SEV_H_
 #define HAL_SEVEN_SEGMENT_SEV_H_
-#include "SEV_cfg.h"
-#include "../../LIBS/Error_Status.h"
+
 /************** prototypes **************/
 tenuErrorStatus Sev_Display(u8 u8sevIndex, u8 u8num);
 tenuErrorStatus Sev_PowerOn(u8 u8sevIndex);

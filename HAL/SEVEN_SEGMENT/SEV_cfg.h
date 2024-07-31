@@ -7,7 +7,7 @@
 
 #ifndef HAL_SEVEN_SEGMENT_SEV_CFG_H_
 #define HAL_SEVEN_SEGMENT_SEV_CFG_H_
-#include "SEV_priv.h"
-#define MAX_SEV_SEGMENT 2
+
+#define MAX_SEV_SEGMENT 	2
 
 #endif /* HAL_SEVEN_SEGMENT_SEV_CFG_H_ */

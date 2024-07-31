@@ -7,12 +7,10 @@
 /**************************************/
 #ifndef DIO_H
 #define DIO_H
-#include "../../LIBS/STD_TYPES.h"
-#include "../../LIBS/Error_Status.h"
-#include "DIO_priv.h"
+
 #define DIO_LOW    0
 #define DIO_HIGH   1
-
+#include "../../LIBS/STD_TYPES.h"
 
 #define DIO_DEACTIVATE    0
 #define DIO_ACTIVATE      1
