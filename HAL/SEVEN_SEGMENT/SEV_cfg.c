@@ -27,7 +27,7 @@ Sev_config SEV_ConfigSet[MAX_SEV_SEGMENT]= {
     {       /* A */       /* B */        /* C */         /* D */        /* E */         /* F */         /* G */  
         {DIO_PIN_NUM_16, DIO_PIN_NUM_17, DIO_PIN_NUM_18, DIO_PIN_NUM_19, DIO_PIN_NUM_20, DIO_PIN_NUM_21, DIO_PIN_NUM_22},
         DIO_PIN_NUM_23,
-        Common_Anode
+        Common_Cathode
     }
 
 };

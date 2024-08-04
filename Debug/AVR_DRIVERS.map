@@ -21,10 +21,13 @@ signature        0x00840000         0x00000400         rw !x
 Linker script and memory map
 
 LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+LOAD ./MCAL/GIE/GIE_prog.o
 LOAD ./MCAL/DIO/DIO.o
+LOAD ./HAL/Stepper/STPR.o
 LOAD ./HAL/SEVEN_SEGMENT/SEV.o
 LOAD ./HAL/SEVEN_SEGMENT/SEV_cfg.o
 LOAD ./APP/Test.o
+LOAD ./APP/TestStepper.o
 LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
 LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
@@ -119,7 +122,7 @@ LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x968
+.text           0x00000000     0x19da
  *(.vectors)
  .vectors       0x00000000       0x54 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -194,55 +197,82 @@ LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x0000007e                __vector_16
                 0x0000007e                __vector_18
                 0x0000007e                __vector_20
+ .text          0x00000082        0x0 ./MCAL/GIE/GIE_prog.o
  .text          0x00000082        0x0 ./MCAL/DIO/DIO.o
+ .text          0x00000082        0x0 ./HAL/Stepper/STPR.o
  .text          0x00000082        0x0 ./HAL/SEVEN_SEGMENT/SEV.o
  .text          0x00000082        0x0 ./HAL/SEVEN_SEGMENT/SEV_cfg.o
  .text          0x00000082        0x0 ./APP/Test.o
+ .text          0x00000082        0x0 ./APP/TestStepper.o
  .text          0x00000082        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
  .text          0x00000082        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  .text          0x00000082        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
                 0x00000082                . = ALIGN (0x2)
  *(.text.*)
+ .text.GIE_Enable
+                0x00000082       0x1c ./MCAL/GIE/GIE_prog.o
+                0x00000082                GIE_Enable
+ .text.GIE_Disable
+                0x0000009e       0x1c ./MCAL/GIE/GIE_prog.o
+                0x0000009e                GIE_Disable
  .text.DIO_voidInit
-                0x00000082       0x2e ./MCAL/DIO/DIO.o
-                0x00000082                DIO_voidInit
+                0x000000ba       0x2e ./MCAL/DIO/DIO.o
+                0x000000ba                DIO_voidInit
+ .text.DIO_InitCertainPort
+                0x000000e8       0x6a ./MCAL/DIO/DIO.o
+                0x000000e8                DIO_InitCertainPort
  .text.DIO_enuWritePin
-                0x000000b0      0x26c ./MCAL/DIO/DIO.o
-                0x000000b0                DIO_enuWritePin
+                0x00000152      0x26c ./MCAL/DIO/DIO.o
+                0x00000152                DIO_enuWritePin
  .text.DIO_enuReadPin
-                0x0000031c      0x114 ./MCAL/DIO/DIO.o
-                0x0000031c                DIO_enuReadPin
+                0x000003be      0x114 ./MCAL/DIO/DIO.o
+                0x000003be                DIO_enuReadPin
  .text.DIO_enuStatePullup
-                0x00000430       0x20 ./MCAL/DIO/DIO.o
-                0x00000430                DIO_enuStatePullup
+                0x000004d2       0x20 ./MCAL/DIO/DIO.o
+                0x000004d2                DIO_enuStatePullup
  .text.DIO_enuWriteGroup
-                0x00000450       0x7a ./MCAL/DIO/DIO.o
-                0x00000450                DIO_enuWriteGroup
+                0x000004f2       0x7a ./MCAL/DIO/DIO.o
+                0x000004f2                DIO_enuWriteGroup
+ .text.STPR_FullStep_Right
+                0x0000056c      0x250 ./HAL/Stepper/STPR.o
+                0x0000056c                STPR_FullStep_Right
+ .text.STPR_FullStep_Left
+                0x000007bc      0x276 ./HAL/Stepper/STPR.o
+                0x000007bc                STPR_FullStep_Left
+ .text.STPR_HalfStep_Right
+                0x00000a32      0x5c0 ./HAL/Stepper/STPR.o
+                0x00000a32                STPR_HalfStep_Right
+ .text.STPR_HalfStep_Left
+                0x00000ff2      0x4fa ./HAL/Stepper/STPR.o
+                0x00000ff2                STPR_HalfStep_Left
+ .text.STPR_Stop
+                0x000014ec       0x50 ./HAL/Stepper/STPR.o
+                0x000014ec                STPR_Stop
  .text.Sev_Display
-                0x000004ca       0xde ./HAL/SEVEN_SEGMENT/SEV.o
-                0x000004ca                Sev_Display
+                0x0000153c       0xde ./HAL/SEVEN_SEGMENT/SEV.o
+                0x0000153c                Sev_Display
  .text.PutOnBus
-                0x000005a8       0x94 ./HAL/SEVEN_SEGMENT/SEV.o
+                0x0000161a       0x94 ./HAL/SEVEN_SEGMENT/SEV.o
  .text.Sev_PowerOn
-                0x0000063c       0x9c ./HAL/SEVEN_SEGMENT/SEV.o
-                0x0000063c                Sev_PowerOn
+                0x000016ae       0x9c ./HAL/SEVEN_SEGMENT/SEV.o
+                0x000016ae                Sev_PowerOn
  .text.Sev_PowerOff
-                0x000006d8       0x9c ./HAL/SEVEN_SEGMENT/SEV.o
-                0x000006d8                Sev_PowerOff
+                0x0000174a       0x9c ./HAL/SEVEN_SEGMENT/SEV.o
+                0x0000174a                Sev_PowerOff
  .text.RunCountdown
-                0x00000774      0x16a ./APP/Test.o
-                0x00000774                RunCountdown
- .text.main     0x000008de       0x6e ./APP/Test.o
-                0x000008de                main
- .text.libgcc   0x0000094c       0x18 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
-                0x0000094c                __udivmodqi4
- .text.libgcc   0x00000964        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00000964        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
-                0x00000964                . = ALIGN (0x2)
+                0x000017e6      0x16a ./APP/Test.o
+                0x000017e6                RunCountdown
+ .text.main     0x00001950       0x6e ./APP/Test.o
+                0x00001950                main
+ .text.libgcc   0x000019be       0x18 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
+                0x000019be                __udivmodqi4
+ .text.libgcc   0x000019d6        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x000019d6        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x000019d6                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000964        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00000964                exit
-                0x00000964                _exit
+ .fini9         0x000019d6        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x000019d6                exit
+                0x000019d6                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -261,18 +291,21 @@ LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000964        0x4 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x000019d6        0x4 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000968                _etext = .
+                0x000019da                _etext = .
 
-.data           0x00800060       0x1c load address 0x00000968
+.data           0x00800060       0x1c load address 0x000019da
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .data          0x00800060        0x0 ./MCAL/GIE/GIE_prog.o
  .data          0x00800060        0x0 ./MCAL/DIO/DIO.o
+ .data          0x00800060        0x0 ./HAL/Stepper/STPR.o
  .data          0x00800060        0x0 ./HAL/SEVEN_SEGMENT/SEV.o
  .data          0x00800060        0x0 ./HAL/SEVEN_SEGMENT/SEV_cfg.o
  .data          0x00800060        0x0 ./APP/Test.o
+ .data          0x00800060        0x0 ./APP/TestStepper.o
  .data          0x00800060        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
  .data          0x00800060        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  .data          0x00800060        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
@@ -282,7 +315,7 @@ LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00800060                SEV_ConfigSet
  *(.rodata)
  *(.rodata*)
- .rodata.C.0.1418
+ .rodata.C.0.1420
                 0x00800072        0xa ./HAL/SEVEN_SEGMENT/SEV.o
  *(.gnu.linkonce.d*)
                 0x0080007c                . = ALIGN (0x2)
@@ -293,18 +326,21 @@ LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x0080007c                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x0080007c        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x0080007c        0x0 ./MCAL/GIE/GIE_prog.o
  .bss           0x0080007c        0x0 ./MCAL/DIO/DIO.o
+ .bss           0x0080007c        0x0 ./HAL/Stepper/STPR.o
  .bss           0x0080007c        0x0 ./HAL/SEVEN_SEGMENT/SEV.o
  .bss           0x0080007c        0x0 ./HAL/SEVEN_SEGMENT/SEV_cfg.o
  .bss           0x0080007c        0x0 ./APP/Test.o
+ .bss           0x0080007c        0x0 ./APP/TestStepper.o
  .bss           0x0080007c        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
  .bss           0x0080007c        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  .bss           0x0080007c        0x0 d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
  *(.bss*)
  *(COMMON)
                 0x0080007c                PROVIDE (__bss_end, .)
-                0x00000968                __data_load_start = LOADADDR (.data)
-                0x00000984                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000019da                __data_load_start = LOADADDR (.data)
+                0x000019f6                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080007c        0x0
                 0x0080007c                PROVIDE (__noinit_start, .)
@@ -329,19 +365,25 @@ LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x1158
+.stab           0x00000000     0x2304
  *(.stab)
- .stab          0x00000000      0x768 ./MCAL/DIO/DIO.o
- .stab          0x00000768      0x4a4 ./HAL/SEVEN_SEGMENT/SEV.o
+ .stab          0x00000000      0x3fc ./MCAL/GIE/GIE_prog.o
+ .stab          0x000003fc      0x618 ./MCAL/DIO/DIO.o
+                                0x7f8 (size before relaxing)
+ .stab          0x00000a14      0xe28 ./HAL/Stepper/STPR.o
+                               0x1008 (size before relaxing)
+ .stab          0x0000183c      0x4a4 ./HAL/SEVEN_SEGMENT/SEV.o
                                 0x684 (size before relaxing)
- .stab          0x00000c0c      0x138 ./HAL/SEVEN_SEGMENT/SEV_cfg.o
+ .stab          0x00001ce0      0x138 ./HAL/SEVEN_SEGMENT/SEV_cfg.o
                                 0x3cc (size before relaxing)
- .stab          0x00000d44      0x414 ./APP/Test.o
+ .stab          0x00001e18      0x414 ./APP/Test.o
                                 0x5f4 (size before relaxing)
+ .stab          0x0000222c       0xd8 ./APP/TestStepper.o
+                                 0xe4 (size before relaxing)
 
-.stabstr        0x00000000      0xd41
+.stabstr        0x00000000      0xf0c
  *(.stabstr)
- .stabstr       0x00000000      0xd41 ./MCAL/DIO/DIO.o
+ .stabstr       0x00000000      0xf0c ./MCAL/GIE/GIE_prog.o
 
 .stab.excl
  *(.stab.excl)

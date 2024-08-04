@@ -7,10 +7,11 @@
 /**************************************/
 #ifndef DIO_H
 #define DIO_H
-
+//
+#include "../../LIBS/STD_TYPES.h"
 #define DIO_LOW    0
 #define DIO_HIGH   1
-#include "../../LIBS/STD_TYPES.h"
+
 
 #define DIO_DEACTIVATE    0
 #define DIO_ACTIVATE      1
@@ -61,6 +62,8 @@
  */
 void DIO_voidInit(void);
 
+
+void DIO_InitCertainPort(u8 PORT);
 /**
  * @brief Writes a value (DIO_LOW or DIO_HIGH) to a specified DIO pin.
  *

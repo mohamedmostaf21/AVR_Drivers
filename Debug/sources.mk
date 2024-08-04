@@ -23,5 +23,7 @@ C_DEPS :=
 SUBDIRS := \
 APP \
 HAL/SEVEN_SEGMENT \
+HAL/Stepper \
 MCAL/DIO \
+MCAL/GIE \
 

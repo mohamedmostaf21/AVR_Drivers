@@ -2,15 +2,15 @@
 #include "../MCAL/DIO/DIO.h"
 #include "../HAL/SEVEN_SEGMENT/SEV.h"
 #include "../LIBS/delay.h"
-void RunCountdown() {
+void RunCountdown(){
     Sev_Display(1, 3);
     Sev_Display(0, 0);
-   Delay_ms(50);
+    Delay_ms(1000);
     for (int i = 2; i >= 0; i--) {
         Sev_Display(1, i);
         for (int j = 9; j >= 0; j--){
         	 Sev_Display(0, j);
-        	 Delay_ms(50);
+        	 Delay_ms(1000);
         }
     }
 }
