@@ -9,8 +9,7 @@
 #define MCAL_EXTI_EXTI_H_
 
 typedef void (*pf)(void);
-typedef void (*pf2)(void);
-typedef void (*pf3)(void);
+
 void EXTI_Enable(u8 INT); //Enable specific interrupt
 
 void EXTI_Disable(u8 INT); //disable specific interrupt

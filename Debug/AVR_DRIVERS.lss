@@ -9,27 +9,27 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   2 .bss          00000012  008000da  008000da  00003f4a  2**0
                   ALLOC
-  3 .stab         00004500  00000000  00000000  00003f4c  2**2
+  3 .stab         000044e8  00000000  00000000  00003f4c  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      000016d6  00000000  00000000  0000844c  2**0
+  4 .stabstr      000016b4  00000000  00000000  00008434  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_aranges 00000140  00000000  00000000  00009b22  2**0
+  5 .debug_aranges 00000140  00000000  00000000  00009ae8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_pubnames 00000170  00000000  00000000  00009c62  2**0
+  6 .debug_pubnames 00000170  00000000  00000000  00009c28  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_info   00001c49  00000000  00000000  00009dd2  2**0
+  7 .debug_info   00001c49  00000000  00000000  00009d98  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_abbrev 00000eeb  00000000  00000000  0000ba1b  2**0
+  8 .debug_abbrev 00000eeb  00000000  00000000  0000b9e1  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_line   00000dad  00000000  00000000  0000c906  2**0
+  9 .debug_line   00000dad  00000000  00000000  0000c8cc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_frame  00000160  00000000  00000000  0000d6b4  2**2
+ 10 .debug_frame  00000160  00000000  00000000  0000d67c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    0000028d  00000000  00000000  0000d814  2**0
+ 11 .debug_str    0000028d  00000000  00000000  0000d7dc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    000007ce  00000000  00000000  0000daa1  2**0
+ 12 .debug_loc    000007ce  00000000  00000000  0000da69  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_ranges 00000050  00000000  00000000  0000e26f  2**0
+ 13 .debug_ranges 00000050  00000000  00000000  0000e237  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:

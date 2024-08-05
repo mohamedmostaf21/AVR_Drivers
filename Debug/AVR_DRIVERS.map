@@ -599,37 +599,37 @@ LOAD d:/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x4500
+.stab           0x00000000     0x44e8
  *(.stab)
  .stab          0x00000000      0x3fc ./MCAL/GIE/GIE_prog.o
- .stab          0x000003fc      0x6d8 ./MCAL/EXTI/EXTI.o
-                                0x8b8 (size before relaxing)
- .stab          0x00000ad4      0x618 ./MCAL/DIO/DIO.o
+ .stab          0x000003fc      0x6c0 ./MCAL/EXTI/EXTI.o
+                                0x8a0 (size before relaxing)
+ .stab          0x00000abc      0x618 ./MCAL/DIO/DIO.o
                                 0x7f8 (size before relaxing)
- .stab          0x000010ec      0xe28 ./HAL/Stepper/STPR.o
+ .stab          0x000010d4      0xe28 ./HAL/Stepper/STPR.o
                                0x1008 (size before relaxing)
- .stab          0x00001f14      0x4a4 ./HAL/SEVEN_SEGMENT/SEV.o
+ .stab          0x00001efc      0x4a4 ./HAL/SEVEN_SEGMENT/SEV.o
                                 0x684 (size before relaxing)
- .stab          0x000023b8      0x138 ./HAL/SEVEN_SEGMENT/SEV_cfg.o
+ .stab          0x000023a0      0x138 ./HAL/SEVEN_SEGMENT/SEV_cfg.o
                                 0x3cc (size before relaxing)
- .stab          0x000024f0      0xe10 ./HAL/LCD_DRIVER/LCD_prg.o
+ .stab          0x000024d8      0xe10 ./HAL/LCD_DRIVER/LCD_prg.o
                                 0xff0 (size before relaxing)
- .stab          0x00003300      0xb34 ./HAL/LCD/LCD.o
+ .stab          0x000032e8      0xb34 ./HAL/LCD/LCD.o
                                 0xd14 (size before relaxing)
- .stab          0x00003e34      0x1d4 ./HAL/LCD/LCD_cfg.o
+ .stab          0x00003e1c      0x1d4 ./HAL/LCD/LCD_cfg.o
                                 0x450 (size before relaxing)
- .stab          0x00004008       0xd8 ./APP/Test.o
+ .stab          0x00003ff0       0xd8 ./APP/Test.o
                                  0xe4 (size before relaxing)
- .stab          0x000040e0       0xd8 ./APP/TestLCD.o
+ .stab          0x000040c8       0xd8 ./APP/TestLCD.o
                                  0xe4 (size before relaxing)
- .stab          0x000041b8       0xd8 ./APP/TestStepper.o
+ .stab          0x000041a0       0xd8 ./APP/TestStepper.o
                                  0xe4 (size before relaxing)
- .stab          0x00004290      0x270 ./APP/Testled.o
+ .stab          0x00004278      0x270 ./APP/Testled.o
                                 0x450 (size before relaxing)
 
-.stabstr        0x00000000     0x16d6
+.stabstr        0x00000000     0x16b4
  *(.stabstr)
- .stabstr       0x00000000     0x16d6 ./MCAL/GIE/GIE_prog.o
+ .stabstr       0x00000000     0x16b4 ./MCAL/GIE/GIE_prog.o
 
 .stab.excl
  *(.stab.excl)
