@@ -22,8 +22,11 @@ C_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 APP \
+HAL/LCD \
+HAL/LCD_DRIVER \
 HAL/SEVEN_SEGMENT \
 HAL/Stepper \
 MCAL/DIO \
+MCAL/EXTI \
 MCAL/GIE \
 
