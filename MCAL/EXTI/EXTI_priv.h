@@ -33,4 +33,10 @@
 #define EXTI_INTF0 	6
 #define EXTI_INTF1 	7
 #define EXTI_INTF2 	5
+
+
+#define EXTI_INT0_PIN 	DIO_PIN_NUM_26 //PD2
+#define EXTI_INT1_PIN 	DIO_PIN_NUM_27 //PD3
+#define EXTI_INT2_PIN 	DIO_PIN_NUM_10 //PB2
+
 #endif /* MCAL_EXTI_EXTI_PRIV_H_ */
