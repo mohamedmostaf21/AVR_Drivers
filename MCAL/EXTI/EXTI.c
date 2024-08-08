@@ -12,7 +12,7 @@
 #include "EXTI_priv.h"
 
 
-static pf PF1_CallBack;
+static pf PF1_CallBack ;
 static pf PF2_CallBack;
 static pf PF3_CallBack;
 

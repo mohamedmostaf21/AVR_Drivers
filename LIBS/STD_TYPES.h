@@ -13,7 +13,7 @@ typedef float f32;
 typedef double f64;
 typedef long double lf128;
 typedef unsigned long long int u64;
-
+#define NULL_PTR	((void*)0)
 typedef enum{
 	EOK,
 	PARAM_OUT_RANGE,

@@ -119,7 +119,7 @@ tenuErrorStatus DIO_enuReadPin(u8 u8PinNumCpy ,u8 *pu8PinValueCpy )
 {
 	tenuErrorStatus  enuReturnStateLoc = EOK;
 
-	if (pu8PinValueCpy != NULL)
+	if (pu8PinValueCpy != NULL_PTR)
 	{
 		//IDR
 		if (u8PinNumCpy >= DIO_PIN_NUM_0 && u8PinNumCpy <= DIO_PIN_NUM_7)

@@ -35,11 +35,11 @@
  */
 
 /*Define Register selector pin*/
-#define LCD_RS 		DIO_PIN_NUM_5
+#define LCD_RS 		DIO_PIN_NUM_23
 /*Define Register selector pin*/
-#define LCD_RW 		DIO_PIN_NUM_4
+#define LCD_RW 		DIO_PIN_NUM_22
 /*Define Register selector pin*/
-#define LCD_EN  	DIO_PIN_NUM_3
+#define LCD_EN  	DIO_PIN_NUM_21
 
 
 

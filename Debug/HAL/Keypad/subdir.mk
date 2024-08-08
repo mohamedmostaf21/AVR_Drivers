@@ -4,17 +4,20 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../HAL/LCD/LCD.c 
+../HAL/Keypad/KPD_cfg.c \
+../HAL/Keypad/KPD_prog.c 
 
 OBJS += \
-./HAL/LCD/LCD.o 
+./HAL/Keypad/KPD_cfg.o \
+./HAL/Keypad/KPD_prog.o 
 
 C_DEPS += \
-./HAL/LCD/LCD.d 
+./HAL/Keypad/KPD_cfg.d \
+./HAL/Keypad/KPD_prog.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-HAL/LCD/%.o: ../HAL/LCD/%.c
+HAL/Keypad/%.o: ../HAL/Keypad/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR Compiler'
 	avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"

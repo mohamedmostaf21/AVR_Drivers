@@ -7,24 +7,6 @@
 
 #ifndef HAL_LCD_LCD_CFG_H_
 #define HAL_LCD_LCD_CFG_H_
-/*
- * Choose LCD Data length Mode :
- * LCD_8BIT or LCD_4BIT
- */
-#define LCD_MODE		  	LCD_4BIT
-
-/*
- * Choose LCD Number of lines :
- * LCD_ONE_LINE or LCD_TWO_LINES
- */
-#define LCD_LINE_MODE   	LCD_TWO_LINES
-
-/*
- * Choose LCD Font size:
- * LCD_7_DOTS or LCD_10_DOTS
- * 10 dots size ONLY work with one line mode
- */
-#define LCD_FONT_SIZE   	LCD_7_DOTS
 
 /*============================================================================
  * LCD Connections
@@ -53,25 +35,28 @@
  -----------                   ----------
  */
 
-/*Define Register selector pin*/
-#define LCD_RS 		DIO_PIN_NUM_23
-/*Define Register selector pin*/
-#define LCD_RW 		DIO_PIN_NUM_22
-/*Define Register selector pin*/
-#define LCD_EN  	DIO_PIN_NUM_21
 
 
 
-/** D0 t0 D7 **/
-#define LCD_D0		DIO_PIN_NUM_24
-#define LCD_D1		DIO_PIN_NUM_25
-#define LCD_D2		DIO_PIN_NUM_26
-#define LCD_D3		DIO_PIN_NUM_27
-#define LCD_D4		DIO_PIN_NUM_28
-#define LCD_D5		DIO_PIN_NUM_29
-#define LCD_D6		DIO_PIN_NUM_30
-#define LCD_D7		DIO_PIN_NUM_31
-extern u8 DataREG[8];
-extern u8 DataVal[8];
+
+#define LCD_MODE_8_BIT  1
+#define LCD_MODE_4_BIT  2
+
+#define LCD_MODE        LCD_MODE_8_BIT
+
+#define LCD_PIN_RS      DIO_PIN_NUM_23
+#define LCD_PIN_RW     	DIO_PIN_NUM_22
+#define LCD_PIN_EN      DIO_PIN_NUM_21
+
+#if LCD_MODE == LCD_MODE_8_BIT
+#define LCD_PIN_D0       DIO_PIN_NUM_24
+#define LCD_PIN_D1       DIO_PIN_NUM_25
+#define LCD_PIN_D2       DIO_PIN_NUM_26
+#define LCD_PIN_D3       DIO_PIN_NUM_27
+#endif
+#define LCD_PIN_D4       DIO_PIN_NUM_28
+#define LCD_PIN_D5       DIO_PIN_NUM_29
+#define LCD_PIN_D6       DIO_PIN_NUM_30
+#define LCD_PIN_D7       DIO_PIN_NUM_31
 
 #endif /* HAL_LCD_LCD_CFG_H_ */
