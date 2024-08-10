@@ -33,11 +33,7 @@ void ADC_voidInit(void){
 		SET_BIT(ADCMUX, ADC_REFS1_BIT);
 	#endif
 
-	CLR_BIT(ADCSRA, ADC_ADEN_BIT);
-	CLR_BIT(ADCSRA, ADC_ADSC_BIT);
-	CLR_BIT(ADCSRA, ADC_ADATE_BIT);
-	CLR_BIT(ADCSRA, ADC_ADIF_BIT);
-	CLR_BIT(ADCSRA, ADC_ADIE_BIT);
+	ADCSRA &= 0b11111000;
 	SET_BIT(ADCSRA, ADC_PRESCALAR);
 
 	#if ADC_TRIGGER_MODE == ADC_SINGLE_MODE
@@ -45,7 +41,7 @@ void ADC_voidInit(void){
 	#else
 		SET_BIT(ADCSRA , ADC_ADATE_BIT) ;
 		SFIOR &= 0b00011111;
-		SET_BIT(SFIOR, ADC_TRIGGER_MODE);
+		SFIOR |= ADC_TRIGGER_MODE << 5;
 	#endif
 }
 
@@ -75,9 +71,7 @@ void ADC_voidSetCallback(pf pfCallbackCpy)
 
 void ADC_voidStartConversion(u8 u8ChannelNbCpy)
 {
-	CLR_BIT(ADCMUX, ADC_REFS0_BIT);
-	CLR_BIT(ADCMUX, ADC_REFS1_BIT);
-	CLR_BIT(ADCMUX, ADC_ADLAR_BIT);
+	ADCMUX &= 0b11100000;
 	ADCMUX |= u8ChannelNbCpy ;
 	//start conversion
 	SET_BIT(ADCSRA , ADC_ADSC_BIT) ;
@@ -104,14 +98,16 @@ void ADC_voidChangeMode(u8 u8ModeCpy)
 /* polling */
 u16 ADC_u16ReadSync(u8 u8ChannelNbCpy)
 {
-	u16 u16ReadValueLoc ;
+	u16 u16ReadValueLoc;
+
 	ADC_voidStartConversion(u8ChannelNbCpy);
+
 	/*wait conversion till finish*/
-	while (GET_BIT(ADCSRA , ADC_ADIF_BIT) == 0);
+	while ((GET_BIT(ADCSRA , ADC_ADIF_BIT)) == 0);
 	/*Clear Flag bit*/
 	SET_BIT(ADCSRA , ADC_ADIF_BIT);
 
-	#if ADC_RES_MODE == ADC_8BIT
+	#if ADC_RESOLUTION_MODE == ADC_bit_Mode_8
 		u16ReadValueLoc = ADCH ;
 	#else
 		u16ReadValueLoc = ADCL;
@@ -134,7 +130,7 @@ void __vector_16(void)
 	{
 		ADC_pfCall();
 	}
-	#if ADC_RES_MODE == ADC_bit_Mode_8
+	#if ADC_RESOLUTION_MODE == ADC_bit_Mode_8
 		ADC_u16ReadValue = ADCH ;
 	#else
 		ADC_u16ReadValue = ADCL;
@@ -143,4 +139,3 @@ void __vector_16(void)
 
 
 }
-

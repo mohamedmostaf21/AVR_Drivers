@@ -5,18 +5,21 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../APP/Test.c \
+../APP/TestADC.c \
 ../APP/TestLCD.c \
 ../APP/TestStepper.c \
 ../APP/Testled.c 
 
 OBJS += \
 ./APP/Test.o \
+./APP/TestADC.o \
 ./APP/TestLCD.o \
 ./APP/TestStepper.o \
 ./APP/Testled.o 
 
 C_DEPS += \
 ./APP/Test.d \
+./APP/TestADC.d \
 ./APP/TestLCD.d \
 ./APP/TestStepper.d \
 ./APP/Testled.d 

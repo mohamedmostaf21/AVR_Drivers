@@ -8,7 +8,7 @@
 #ifndef DIO_CFG_H
 #define DIO_CFG_H
 
-#define DIO_PIN_DIR_0     DIO_OUTPUT
+#define DIO_PIN_DIR_0     DIO_INPUT
 #define DIO_PIN_DIR_1     DIO_OUTPUT
 #define DIO_PIN_DIR_2     DIO_OUTPUT
 #define DIO_PIN_DIR_3     DIO_OUTPUT

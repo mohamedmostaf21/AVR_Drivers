@@ -7,6 +7,8 @@
 
 #ifndef MCAL_ADC_ADC_PROG_H_
 #define MCAL_ADC_ADC_PROG_H_
+#include "../EXTI/EXTI.h"
+#include "../../LIBS/STD_TYPES.h"
 /*Channels*/
 #define ADC_CHANNEL_0   	0
 #define ADC_CHANNEL_1   	1

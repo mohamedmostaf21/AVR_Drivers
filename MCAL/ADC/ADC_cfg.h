@@ -12,9 +12,9 @@
 //resou
 //volatage refer
 //prescalar
-#define ADC_TRIGGER_MODE 	ADC_SINGLE_MODE
-#define	ADC_RESOLUTION_MODE	ADC_bit_Mode_8
-#define ADC_VOLTAGE_REF		ADC_AREF
+#define ADC_TRIGGER_MODE 	ADC_FREE_RUNNING
+#define	ADC_RESOLUTION_MODE	ADC_bit_Mode_10
+#define ADC_VOLTAGE_REF		ADC_AVCC
 #define ADC_PRESCALAR		ADC_PRESCALER_32
 
 #endif /* MCAL_ADC_ADC_CFG_H_ */
