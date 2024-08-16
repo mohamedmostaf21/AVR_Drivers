@@ -10,7 +10,7 @@
 #include "../../MCAL/DIO/DIO.h"
 #include "LCD.h"
 #include "LCD_cfg.h"
-#define F_CPU 8000000(UL)
+
 static void Lcd_SendCommand(u8 command);
 static void Lcd_SendData(u8 data);
 #if LCD_MODE == LCD_MODE_4_BIT
@@ -76,7 +76,23 @@ void Lcd_ShiftDisplayLeft(u8 count) {
         count--;
     }
 }
+void Lcd_moveCursor(u8 row,u8 col)
+{
 
+	u8 Lcd_memory_address;
+	switch(row)
+	{
+	case 0:
+		Lcd_memory_address = col;
+		break;
+	case 1:
+		Lcd_memory_address = col + 0x40;
+		break;
+	}
+	/* Move the LCD cursor to this specific address */
+	Lcd_SendCommand( Lcd_memory_address | LCD_SET_CURSOR_LOCATION);
+
+}
 void Lcd_ShiftDisplayRight(u8 count) {
     while (count > 0) {
         Lcd_SendCommand(0b00011100);

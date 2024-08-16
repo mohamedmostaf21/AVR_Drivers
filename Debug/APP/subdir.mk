@@ -4,25 +4,28 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../APP/Test.c \
+../APP/App.c \
 ../APP/TestADC.c \
-../APP/TestLCD.c \
-../APP/TestStepper.c \
-../APP/Testled.c 
+../APP/Test_Bluetooth.c \
+../APP/Test_Servo.c \
+../APP/Test_Siren.c \
+../APP/Test_UART.c 
 
 OBJS += \
-./APP/Test.o \
+./APP/App.o \
 ./APP/TestADC.o \
-./APP/TestLCD.o \
-./APP/TestStepper.o \
-./APP/Testled.o 
+./APP/Test_Bluetooth.o \
+./APP/Test_Servo.o \
+./APP/Test_Siren.o \
+./APP/Test_UART.o 
 
 C_DEPS += \
-./APP/Test.d \
+./APP/App.d \
 ./APP/TestADC.d \
-./APP/TestLCD.d \
-./APP/TestStepper.d \
-./APP/Testled.d 
+./APP/Test_Bluetooth.d \
+./APP/Test_Servo.d \
+./APP/Test_Siren.d \
+./APP/Test_UART.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

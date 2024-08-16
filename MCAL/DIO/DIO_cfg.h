@@ -8,19 +8,19 @@
 #ifndef DIO_CFG_H
 #define DIO_CFG_H
 
-#define DIO_PIN_DIR_0     DIO_INPUT
+#define DIO_PIN_DIR_0     DIO_OUTPUT
 #define DIO_PIN_DIR_1     DIO_OUTPUT
 #define DIO_PIN_DIR_2     DIO_OUTPUT
 #define DIO_PIN_DIR_3     DIO_OUTPUT
 #define DIO_PIN_DIR_4     DIO_INPUT
-#define DIO_PIN_DIR_5     DIO_INPUT
-#define DIO_PIN_DIR_6     DIO_INPUT
-#define DIO_PIN_DIR_7     DIO_INPUT
+#define DIO_PIN_DIR_5     DIO_OUTPUT
+#define DIO_PIN_DIR_6     DIO_OUTPUT
+#define DIO_PIN_DIR_7     DIO_OUTPUT
 
-#define DIO_PIN_DIR_8     DIO_INPUT
-#define DIO_PIN_DIR_9     DIO_INPUT
-#define DIO_PIN_DIR_10    DIO_INPUT
-#define DIO_PIN_DIR_11    DIO_INPUT
+#define DIO_PIN_DIR_8     DIO_OUTPUT
+#define DIO_PIN_DIR_9     DIO_OUTPUT
+#define DIO_PIN_DIR_10    DIO_OUTPUT
+#define DIO_PIN_DIR_11    DIO_OUTPUT
 #define DIO_PIN_DIR_12    DIO_OUTPUT
 #define DIO_PIN_DIR_13    DIO_OUTPUT
 #define DIO_PIN_DIR_14    DIO_OUTPUT

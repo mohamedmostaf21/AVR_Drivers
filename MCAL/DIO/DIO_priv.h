@@ -29,7 +29,13 @@
 
 #define CONC(b7,b6,b5,b4,b3,b2,b1,b0)       CONC_HELP(b7,b6,b5,b4,b3,b2,b1,b0)
 #define CONC_HELP(b7,b6,b5,b4,b3,b2,b1,b0)  0b##b7##b6##b5##b4##b3##b2##b1##b0
-
+//Creating an enum to substitute every PORT with it's number
+typedef enum{
+	PORTA = 0, //making sure first element equals 0
+	PORTB,
+	PORTC,
+	PORTD
+}DIO_PORTS_t;
 
 #ifndef DIO_PIN_DIR_0
 #define DIO_PIN_DIR_0     DIO_INPUT

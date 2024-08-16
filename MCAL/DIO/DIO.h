@@ -52,7 +52,7 @@
 #define DIO_PIN_NUM_31  31
 
 
-
+#include "DIO_priv.h"
 /**
  * @brief Initializes the DIO direction registers for all ports (A to D).
  *
@@ -61,7 +61,8 @@
  * @return None.
  */
 void DIO_voidInit(void);
-
+//sets data direction of 1 pin in a port
+void DIO_vSetPinDir(u8 Copy_u8PortName, u8 Copy_u8PinNum, u8 Copy_u8PinDir);
 
 void DIO_InitCertainPort(u8 PORT);
 /**

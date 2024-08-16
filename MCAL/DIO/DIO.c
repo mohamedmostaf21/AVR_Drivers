@@ -26,7 +26,29 @@ void DIO_voidInit(void)
    DDRD = CONC(DIO_PIN_DIR_31,DIO_PIN_DIR_30,DIO_PIN_DIR_29,DIO_PIN_DIR_28,DIO_PIN_DIR_27,DIO_PIN_DIR_26,DIO_PIN_DIR_25,DIO_PIN_DIR_24);
 
 }
-
+//sets data direction of 1 pin in a port
+void DIO_vSetPinDir(u8 Copy_u8PortName, u8 Copy_u8PinNum, u8 Copy_u8PinDir){
+	if(Copy_u8PinDir == DIO_OUTPUT)
+	{
+		switch(Copy_u8PortName)
+		{
+		case PORTA: SET_BIT(DDRA, Copy_u8PinNum); break;
+		case PORTB: SET_BIT(DDRB, Copy_u8PinNum); break;
+		case PORTC: SET_BIT(DDRC, Copy_u8PinNum); break;
+		case PORTD: SET_BIT(DDRD, Copy_u8PinNum); break;
+		}
+	}
+	else if(Copy_u8PinDir == DIO_INPUT)
+	{
+		switch(Copy_u8PortName)
+		{
+		case PORTA: CLR_BIT(DDRA, Copy_u8PinNum); break;
+		case PORTB: CLR_BIT(DDRB, Copy_u8PinNum); break;
+		case PORTC: CLR_BIT(DDRC, Copy_u8PinNum); break;
+		case PORTD: CLR_BIT(DDRD, Copy_u8PinNum); break;
+		}
+	}
+}
 void DIO_InitCertainPort(u8 PORT)
 {
 	if(PORT == ODRA){

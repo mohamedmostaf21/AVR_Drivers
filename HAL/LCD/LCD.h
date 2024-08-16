@@ -7,7 +7,8 @@
 
 #ifndef HAL_LCD_LCD_H_
 #define HAL_LCD_LCD_H_
-
+#include "../../LIBS/STD_TYPES.h"
+#define LCD_SET_CURSOR_LOCATION 0x80
 typedef enum {
     LCD_STATE_OFF,
     LCD_STATE_ON
@@ -33,7 +34,7 @@ typedef struct
 } Lcd_DisplayControlType;
 
 //extern Lcd_DisplayControlType Lcd_Configuration;
-
+void Lcd_moveCursor(u8 row,u8 col);
 void Lcd_Init(const Lcd_DisplayControlType* control);
 void Lcd_DisplayCharcter(char data);
 void Lcd_DisplayString(const char* str);

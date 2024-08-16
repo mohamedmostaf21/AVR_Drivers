@@ -19,5 +19,13 @@ typedef enum{
 	PARAM_OUT_RANGE,
 	PARAM_NULL_PTR
 }tenuErrorStatus;
+#define HWREG8(_REG)		(*((volatile u8*) _REG))
+#define HWREG16(_REG)		(*((volatile u16*) _REG))
+#define HWREG32(_REG)		(*((volatile u32*) _REG))
+
+typedef enum{
+	E_NOT_OK,
+	E_OK
+}Std_ReturnType;
 
 #endif /* STD_TYPES_H */

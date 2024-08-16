@@ -22,14 +22,15 @@ C_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 APP \
-HAL/Keypad \
-HAL/Keypad_driver \
+HAL/Bluetooth_Module \
 HAL/LCD \
-HAL/LCD_DRIVER \
-HAL/SEVEN_SEGMENT \
-HAL/Stepper \
-MCAL/ADC \
+HAL/Servo \
+HAL/Siren \
 MCAL/DIO \
 MCAL/EXTI \
 MCAL/GIE \
+MCAL/PWM \
+MCAL/TIMER \
+MCAL/UART \
+MCAL/UART_Driver \
 

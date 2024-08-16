@@ -44,19 +44,19 @@
 
 #define LCD_MODE        LCD_MODE_8_BIT
 
-#define LCD_PIN_RS      DIO_PIN_NUM_23
-#define LCD_PIN_RW     	DIO_PIN_NUM_22
-#define LCD_PIN_EN      DIO_PIN_NUM_21
+#define LCD_PIN_RS      DIO_PIN_NUM_7
+#define LCD_PIN_RW     	DIO_PIN_NUM_6
+#define LCD_PIN_EN      DIO_PIN_NUM_5
 
 #if LCD_MODE == LCD_MODE_8_BIT
-#define LCD_PIN_D0       DIO_PIN_NUM_24
-#define LCD_PIN_D1       DIO_PIN_NUM_25
-#define LCD_PIN_D2       DIO_PIN_NUM_26
-#define LCD_PIN_D3       DIO_PIN_NUM_27
+#define LCD_PIN_D0       DIO_PIN_NUM_16
+#define LCD_PIN_D1       DIO_PIN_NUM_17
+#define LCD_PIN_D2       DIO_PIN_NUM_18
+#define LCD_PIN_D3       DIO_PIN_NUM_19
 #endif
-#define LCD_PIN_D4       DIO_PIN_NUM_28
-#define LCD_PIN_D5       DIO_PIN_NUM_29
-#define LCD_PIN_D6       DIO_PIN_NUM_30
-#define LCD_PIN_D7       DIO_PIN_NUM_31
+#define LCD_PIN_D4       DIO_PIN_NUM_20
+#define LCD_PIN_D5       DIO_PIN_NUM_21
+#define LCD_PIN_D6       DIO_PIN_NUM_22
+#define LCD_PIN_D7       DIO_PIN_NUM_23
 
 #endif /* HAL_LCD_LCD_CFG_H_ */
